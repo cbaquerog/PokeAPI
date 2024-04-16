@@ -51,6 +51,8 @@ header {
 
 main {
     padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 ul {
@@ -62,7 +64,7 @@ ul {
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
-    padding-inline: 1rem;
+    padding-inline: 2rem;
 }
 
 .nav-list {
@@ -94,8 +96,36 @@ ul {
 
 .pokemon-todos {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
+}
+
+.pokemon {
+    border-radius: 1rem;
+    background-color: var(--clr-white);
+    box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, .25);
+    padding-block: 1rem;
+    text-transform: uppercase;
+    position: relative;
+    isolation: isolate; /*Todos los z index de los elementos hijos el nivel más bajo que se pueden ir es él mismo*/
+    overflow: hidden;
+}
+
+.pokemon-id-back {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+    font-weight: 800;
+    color: var(--clr-gray);
+    z-index: -1;    
+}
+
+.pokemon-imagen {
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .pokemon-imagen img {
@@ -103,7 +133,65 @@ ul {
     max-width: 6rem;
 }
 
+.pokemon-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-inline: 1rem;
+    /*No sé porqué no me centra el contenido*/
+    align-items: center;
+    text-align: center;
+}
 
+.nombre-contenedor {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem; /*Aquí el gap sólo aplica cuando están en la misma línea vertical, si por tamaño de pantalla se posicionan uno debajo de otro con flex: wrap; deja de aplicarse*/
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pokemon-id {
+    background-color: var(--clr-gray);
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+    font-size: .75rem;
+    font-weight: 500;
+}
+
+.pokemon-nombre {
+    font-size: 1.4rem;
+}
+
+.pokemon-tipos {
+    display: flex;
+    gap: .5rem;
+    font-size: .75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: .5rem;
+}
+
+.tipo {
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+}
+
+.pokemon-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: .85rem;
+    justify-content: center;
+    padding: .25rem;
+}
+
+.stat {
+    background-color: var(--clr-gray);
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+}
 
 /*Tipos de Pokemon*/
 .normal {
@@ -194,4 +282,18 @@ ul {
 .fairy {
     background-color: var(--type-fairy);
     color: var(--clr-black);
+}
+
+/*Media queries*/
+
+@media screen and (min-width: 470px) {
+    .pokemon-todos {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .pokemon-todos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
