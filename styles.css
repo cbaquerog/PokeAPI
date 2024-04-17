@@ -111,6 +111,11 @@ ul {
     overflow: hidden;
 }
 
+.pokemon:hover {
+   transform: scale(1.15);
+   transition: 300ms;
+}
+
 .pokemon-id-back {
     position: absolute;
     top: 1rem;
